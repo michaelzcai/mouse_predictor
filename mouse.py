@@ -28,9 +28,8 @@ import mouse_data_loader
 net = mousenet.Network([200,30,2])
 training_data, validation_data = mouse_data_loader.load_mouse_data()
 net.SGD(training_data, 50, 10, 0.1, evaluation_data=validation_data, monitor_evaluation_cost=True, monitor_training_cost=True)
+net.save('network')
 
 # display predictions
-import mousenet
-import mouse_predictor
 net = mousenet.load('mousenet_test')
 mouse_predictor.run_display(net)
